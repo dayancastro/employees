@@ -4,6 +4,7 @@ import { Employees } from '../imports/collections/employees';
 import _ from 'lodash';
 import { image, helpers, address } from 'faker';
 
+
 Meteor.startup(() => {
   // code to run on server at startup
   //Great place to generate data.
@@ -26,7 +27,7 @@ Meteor.startup(() => {
     });
   }
 
-  Meteor.publish('employees', function() {
-    return Employees.find({}, { limit: 20 });
+  Meteor.publish('employees', function(per_page) {
+    return Employees.find({}, { limit: per_page });
   });
 });
